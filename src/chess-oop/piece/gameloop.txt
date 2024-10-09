@@ -1,0 +1,62 @@
+gameloop:
+player = this.players[0]
+While (!is_not_mate()) {
+  while move is put_piece_down {
+    piece_pos = player.pick_piece()
+    piece_moves = board[piece_pos].moves()
+    piece_legal_moves = this.legal_moves(piece_atk_moves)
+    piece_atk_moves = this.board[piece_pos].atk_moves()
+    piece_atk_legal_moves = this.atk_legal_moves(piece_atk_moves)
+    move = player.pick_move(piece_atk_legal_moves+piece_legal_moves)
+  }
+  if move in piece_atk_legal_moves {
+    ...
+  } else {
+    ...
+  }
+}
+...print result...
+
+-------------------
+No gameloop. Event based.
+
+Setting up allowed moves condition. 
+For pawn.legal_moves: move forward by 1 step unless there is a non_empty piece infront.
+For queen.legal_moves: move horizontal/vertical/diagnol until there is a 
+    non_empty piece infront.
+
+Should it return a fucntion which accepts board and pos. It the has a 
+
+
+-------------------
+How to attack. Get list of dictionary. [move_dict, atk_dict, move_highlight, atk_highlight]
+
+move_dict = {old_pos: new_pos}
+
+All moves can be fundamentally broken down by moves then deletes (turning into EmptyPiece).
+
+All moves are either:
+  1. moves
+      When it only has a tuple with the new position,
+  2. attacks
+      When it has 2 tuples. first is to be deleted one, 2nd is the new position.
+      Green is where the peice will move to, red is the one which will be deleted.
+
+
+After the piece is held the types of buttons are:
+1. Where you can't move, clicking on it results in piece not being held.
+2. Where you can move to
+3. Where the enemy stands where it will die.
+
+
+
+
+
+
+Gameloop. Keep turn in Game class.
+1. Let player pick a piece.
+2. Check if the piece is this Game.turn_is_white(). if not start from 1.
+3. Check if Game.turn_is_white()'s king is being attacked. If so then piece must be king. Else start from 1.
+**  3.1. If King has no moves then return other side won
+4. Let player make the move. If now his king is being attacked then rollback.
+5. Else continue with the move.

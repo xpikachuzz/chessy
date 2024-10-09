@@ -1,0 +1,61 @@
+#root {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+.board {
+    display: grid;
+    width: 1000px;
+}
+
+.brd_cell {
+    height: 100px;
+}
+
+.brd_cell-walk {
+    background-color: rgb(60, 60, 60);
+}
+
+.defeat_div {
+    background-color: rgba(0, 0, 0, 0.525);
+    height: 800px;
+    opacity: 0;
+    width: 1000px;
+    position: absolute;
+}
+
+@keyframes fade-out {
+    from {
+        opacity: 0%;
+    }
+    to {
+        opacity: 0%;
+        display: none;
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0%;
+    }
+    to {
+        opacity: 100%;
+    }
+}
+
+.defeat_popup {
+    position: absolute;
+    width: 500px;
+    height: 200px;
+    background-color: black;
+    margin-left: 250px;
+    margin-top: 250px;
+    opacity: 100%;
+    padding-top: 20px;
+}
+
+.restart-btn {
+    margin-top: 20px;
+}
